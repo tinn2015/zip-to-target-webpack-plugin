@@ -8,10 +8,14 @@ class MyPlugin {
     // this.subDirname = options.subDirectoryName || 'www'
     this.dirList = options.dirList
     this.output = options.output || 'offlinePackage'
+    this.publicPath = options.publicPath
   }
   apply (compiler) {
     compiler.hooks.done.tap('MyPlugin', (compliation) => {
-      generatorDirAndCompress(this.dirList, this.output, compiler.options.output.path)
+      console.log(compiler.options)
+      setTimeout(() => {
+        generatorDirAndCompress(this.dirList, this.output, compiler.options.output.path)
+      }, 10)
     })
   }
 }
