@@ -12,7 +12,7 @@ class MyPlugin {
   }
   apply (compiler) {
     compiler.hooks.done.tap('MyPlugin', (compliation) => {
-      console.log(compiler.options)
+      // console.log(compiler.options)
       setTimeout(() => {
         generatorDirAndCompress(this.dirList, this.output, compiler.options.output.path)
       }, 10)
@@ -49,7 +49,7 @@ function generatorDirAndCompress (dirList, output, buildOutput) {
   
 
 
-  console.log(allList)
+  // console.log(allList)
   checkDirExists(allList)
   readAndCopy(buildOutput, allList.length ? allList[allList.length - 1] : './')
   doCompressing(temp, zipTarget)
